@@ -71,3 +71,21 @@ function sendEmail() {
       alert("Oops! Something went wrong. Please try again.");
     });
 }
+
+document.querySelectorAll('.filter-btn').forEach(button => {
+  button.addEventListener('click', () => {
+    const filter = button.getAttribute('data-filter');
+    document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+    button.classList.add('active');
+
+    document.querySelectorAll('.project-card').forEach(card => {
+      const category = card.getAttribute('data-category');
+      if (filter === 'all' || category.includes(filter)) {
+        card.style.display = 'block';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  });
+});
+

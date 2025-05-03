@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Deep Learning & Frameworks Interview Prep</title>
+  <style>
+    body { font-family: Arial, sans-serif; background-color: #f9f9f9; padding: 20px; }
+    h1 { color: #2c3e50; margin-bottom: 20px; }
+    .card-container { display: flex; flex-wrap: wrap; gap: 10px; }
+    .card { background: #fff; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); padding: 15px; width: 250px; cursor: pointer; transition: transform 0.2s; }
+    .card:hover { transform: scale(1.03); }
+    .question { font-weight: bold; color: #2c3e50; }
+    .answer { display: none; margin-top: 10px; color: #555; font-size: 0.95em; }
+  </style>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      document.querySelectorAll('.card').forEach(card => {
+        card.addEventListener('click', () => {
+          const ans = card.querySelector('.answer');
+          ans.style.display = ans.style.display === 'block' ? 'none' : 'block';
+        });
+      });
+    });
+  </script>
+</head>
+<body>
+  <h1>Deep Learning & Frameworks Interview Prep</h1>
+  <div class="card-container">
+    <div class="card">
+      <div class="question">Explain the difference between eager execution and graph execution in TensorFlow.</div>
+      <div class="answer">Eager execution evaluates operations immediately, making debugging intuitive, whereas graph execution builds a static computational graph that can be optimized and executed for performance and portability.</div>
+    </div>
+    <div class="card">
+      <div class="question">How does PyTorch’s Dynamic Computational Graph benefit research?</div>
+      <div class="answer">Dynamic graphs allow modifying network architecture on the fly, enabling complex control flows like loops and conditional branches, which is ideal for prototyping novel models and debugging.</div>
+    </div>
+    <div class="card">
+      <div class="question">What are the roles of Dataset and DataLoader in PyTorch?</div>
+      <div class="answer">Dataset handles data fetching and preprocessing, and DataLoader batches data, shuffles, and parallelizes loading via worker processes, ensuring efficient input pipelines during training.</div>
+    </div>
+    <div class="card">
+      <div class="question">Describe how TensorFlow’s tf.data API improves performance.</div>
+      <div class="answer">tf.data provides composable transformations, prefetching, parallel mapping, and caching, which reduce CPU-GPU bottlenecks and ensure a steady data supply for high-throughput training loops.</div>
+    </div>
+    <div class="card">
+      <div class="question">What is the purpose of PyTorch Lightning?</div>
+      <div class="answer">PyTorch Lightning abstracts boilerplate for training loops, organizing code into modules for model, data, and training, enabling focus on research logic while providing built-in support for distributed training.</div>
+    </div>
+    <div class="card">
+      <div class="question">Explain how gradient checkpointing reduces memory usage.</div>
+      <div class="answer">Gradient checkpointing saves memory by storing only a subset of activations during the forward pass and recomputing them in the backward pass, trading extra compute for reduced memory footprint.</div>
+    </div>
+    <div class="card">
+      <div class="question">How does TensorRT optimize inference?</div>
+      <div class="answer">TensorRT performs layer and tensor fusion, kernel auto-tuning, precision calibration (FP16/INT8), and dynamic tensor memory management to accelerate model inference on NVIDIA GPUs.</div>
+    </div>
+    <div class="card">
+      <div class="question">What advantages does JAX offer for numerical computing?</div>
+      <div class="answer">JAX provides function transformations like JIT compilation, automatic vectorization (vmap), and automatic differentiation, enabling high-performance, composable numerical workloads on CPUs and GPUs.</div>
+    </div>
+  </div>
+
+
+  <h1>Deep Learning Frameworks: PyTorch, JAX, and TensorFlow</h1>
+  <div class="card-container">
+
+      <!-- PyTorch Card -->
+      <div class="card">
+          <h2>PyTorch</h2>
+          <div class="content">
+              <p><strong>Overview:</strong> PyTorch is an open-source deep learning framework developed by Facebook’s AI Research lab, known for its flexibility and dynamic computation graph.</p>
+              <ul>
+                  <li><strong>Key Features:</strong></li>
+                  <li>Dynamic Computation Graph (define-by-run)</li>
+                  <li>Autograd for automatic differentiation</li>
+                  <li>Pythonic and easy-to-use API</li>
+                  <li>Integration with the Python ecosystem (e.g., NumPy, SciPy)</li>
+                  <li>Popular in research and academia</li>
+              </ul>
+              <p><strong>Use Cases:</strong></p>
+              <ul>
+                  <li>Model development and experimentation</li>
+                  <li>Computer vision, NLP, reinforcement learning</li>
+              </ul>
+          </div>
+      </div>
+
+      <!-- JAX Card -->
+      <div class="card">
+          <h2>JAX</h2>
+          <div class="content">
+              <p><strong>Overview:</strong> JAX is a library developed by Google for high-performance machine learning research, extending NumPy with automatic differentiation and JIT compilation for optimization.</p>
+              <ul>
+                  <li><strong>Key Features:</strong></li>
+                  <li>Autograd for automatic differentiation</li>
+                  <li>JIT (Just-in-Time) Compilation for optimized computation</li>
+                  <li>Vectorization (vmap) for batch operations</li>
+                  <li>XLA optimization for GPUs and TPUs</li>
+                  <li>Functional programming style</li>
+              </ul>
+              <p><strong>Use Cases:</strong></p>
+              <ul>
+                  <li>High-performance ML tasks</li>
+                  <li>Reinforcement learning, Bayesian methods, optimization</li>
+                  <li>Scaling models on TPUs</li>
+              </ul>
+          </div>
+      </div>
+
+      <!-- TensorFlow Card -->
+      <div class="card">
+          <h2>TensorFlow</h2>
+          <div class="content">
+              <p><strong>Overview:</strong> TensorFlow is an open-source ML framework developed by Google, with a focus on production-ready deployments and scalability across various platforms.</p>
+              <ul>
+                  <li><strong>Key Features:</strong></li>
+                  <li>Static computation graph (define-and-run)</li>
+                  <li>Keras high-level API for easy model building</li>
+                  <li>TensorFlow Serving for production-scale model deployment</li>
+                  <li>Integration with TensorFlow Lite, TensorFlow.js for multi-platform support</li>
+                  <li>Tools for model optimization and serving</li>
+              </ul>
+              <p><strong>Use Cases:</strong></p>
+              <ul>
+                  <li>Production-scale deep learning systems</li>
+                  <li>Cross-platform deployment (mobile, web, cloud)</li>
+                  <li>Computer vision, speech recognition, NLP</li>
+              </ul>
+          </div>
+      </div>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f9;
+            margin: 20px;
+            padding: 20px;
+        }
+        h1, h2 {
+            color: #2c3e50;
+        }
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            padding: 15px;
+            width: 300px;
+            height: auto;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+        .card:hover {
+            transform: scale(1.05);
+        }
+        .question {
+            font-weight: bold;
+            color: #34495e;
+        }
+        .answer {
+            color: #2c3e50;
+            display: none;
+            margin-top: 10px;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const cards = document.querySelectorAll(".card");
+            cards.forEach(card => {
+                card.addEventListener("click", function () {
+                    const answer = this.querySelector(".answer");
+                    answer.style.display = answer.style.display === "none" ? "block" : "none";
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    
+
+    <h2>AI/ML and System Design Projects</h2>
+    <div class="card-container">
+        <div class="card">
+            <div class="question">Privacy-Preserving LLM Platform</div>
+            <div class="answer">
+                This project focused on addressing privacy concerns related to LLMs in enterprise environments. I worked on designing a system that leveraged homomorphic encryption (FHE) to secure the data during inference, without compromising model performance. We were able to fine-tune a 70B parameter model using QLoRA and reduced costs by 8x. A major accomplishment was integrating the model into AWS SageMaker for secure and scalable deployment, serving 200+ users in a production environment.
+            </div>
+        </div>
+        <div class="card">
+            <div class="question">Enterprise GenAI Platform</div>
+            <div class="answer">
+                This project involved the orchestration of multiple LLMs (including GPT-4 and Llama 2) to serve dynamic content generation in real-time. The focus was on creating a flexible and cost-efficient system that could scale. One key feature I developed was dynamic model routing, which resulted in a 40% cost reduction in the overall inference process while maintaining a 99.9% service-level agreement (SLA). This platform significantly impacted the company's bottom line, reducing operational costs by over $2.3 million annually.
+            </div>
+        </div>
+        <div class="card">
+            <div class="question">National-Scale Computer Vision Deployment</div>
+            <div class="answer">
+                I led the development of a computer vision system deployed across 8 manufacturing hubs, processing over 15 million inferences daily. The system utilized YOLOv9 for real-time object detection in quality control processes. Additionally, I integrated a federated learning pipeline that adhered to strict data compliance regulations (GDPR, CCPA, etc.) across multiple regions. The deployment also incorporated Kubernetes for container orchestration and Istio for service mesh, ensuring 99.97% uptime, even during peak usage.
+            </div>
+        </div>
+        <div class="card">
+            <div class="question">Real-time Fraud Detection System</div>
+            <div class="answer">
+                This project involved designing and deploying a fraud detection system that analyzed over 5 million transactions per month. The system was built using YOLOv8 for anomaly detection, combined with Kafka for real-time data streaming. We implemented a scalable architecture that integrated multiple data sources, allowing the system to identify fraudulent transactions with high precision. As a result, we prevented over $2 million in annual fraud losses by accurately flagging high-risk transactions within milliseconds of being processed.
+            </div>
+        </div>
+        <div class="card">
+            <div class="question">Federated Learning for IoT Devices</div>
+            <div class="answer">
+                I developed a federated learning framework for IoT devices that ensured privacy preservation while training on decentralized data. The project aimed to build a predictive maintenance model across several edge devices without compromising data privacy. We overcame challenges such as data heterogeneity and model aggregation by developing a custom aggregation algorithm. This solution allowed for more accurate predictions of equipment failure, with a reduction in downtime by 25% and improved maintenance efficiency across the organization.
+            </div>
+        </div>
+    </div>
+</body>
+</html>

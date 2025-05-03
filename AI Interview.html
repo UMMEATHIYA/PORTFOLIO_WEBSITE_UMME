@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Interview</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            margin: 20px;
+            padding: 20px;
+        }
+        h1, h2 {
+            color: #2c3e50;
+        }
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            padding: 15px;
+            width: 250px;
+            height: auto;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+        .card:hover {
+            transform: scale(1.02);
+        }
+        .question {
+            font-weight: bold;
+            color: #34495e;
+        }
+        .answer {
+            color: #2c3e50;
+            display: none;
+            margin-top: 10px;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const cards = document.querySelectorAll(".card");
+            cards.forEach(card => {
+                card.addEventListener("click", function () {
+                    const answer = this.querySelector(".answer");
+                    answer.style.display = answer.style.display === "none" ? "block" : "none";
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>Applied AI Research Engineer Interview Prep</h1>
+
+    <h2>Company Experience</h2>
+    <div class="card-container">
+        <div class="card">
+            <div class="question">IBM</div>
+            <div class="answer">At IBM, my role involved building scalable AI services integrated into enterprise-grade environments. One key project was a document understanding pipeline used in insurance underwriting, where I used a hybrid of rule-based and transformer-based extraction systems to boost accuracy across heterogeneous document formats. I collaborated closely with DevOps to containerize and deploy solutions across hybrid cloud platforms. My contributions also extended to internal tooling enhancements, where I proposed and implemented test-driven development practices for our ML pipelines using PyTest and Great Expectations, improving reliability and stakeholder confidence.</div>
+        </div>
+        <div class="card">
+            <div class="question">DePaul University</div>
+            <div class="answer">At DePaul, I contributed to academic research in the area of human-centered AI. I worked on a multimodal sentiment analysis tool that combined visual, audio, and textual features for emotion recognition in educational videos. Beyond coding, I was involved in designing the annotation schema and supervising data labeling tasks, integrating feedback loops to refine label quality. I also co-authored a paper and managed model versioning across experiments with DVC. My experience here was deeply collaborative and helped shape my perspective on interpretable AI systems, particularly in educational and assistive technology contexts.</div>
+        </div>
+        <div class="card">
+            <div class="question">Startup Projects & Freelance</div>
+            <div class="answer">In addition to full-time roles, I’ve collaborated with startups on specialized AI applications. For instance, I helped a fintech startup build a credit scoring engine using graph neural networks that integrated alternative data sources, such as transaction graphs and social ties. I also developed a lightweight recommendation system for an e-commerce platform using fastText embeddings for product descriptions and transactional clustering for personalization. These roles demanded end-to-end execution—data ingestion, modeling, deployment, and monitoring—all under tight deadlines. They gave me practical exposure to balancing innovation with MVP deliverability.</div>
+        </div>
+    </div>
+
+    <h2>Resume-Based Questions</h2>
+    <div class="card-container">
+        <div class="card">
+            <div class="question">1. Can you walk me through your experience with LLMs and fine-tuning?</div>
+            <div class="answer">I fine-tuned LLaMA 2 for a legal assistant chatbot using QLoRA and optimized inference with TensorRT-LLM. It was deployed in a microservice handling thousands of requests efficiently.</div>
+        </div>
+        <div class="card">
+            <div class="question">2. What was your role in the recommendation systems you worked on?</div>
+            <div class="answer">I built a personalized course recommender using BERT-based embeddings and CLIP for image analysis at an ed-tech startup, increasing user retention through A/B tested iterations.</div>
+        </div>
+        <div class="card">
+            <div class="question">3. Tell us more about your fraud detection system.</div>
+            <div class="answer">I created a YOLOv8-based fraud detection system using real-time video from ATMs, integrated with Kafka for alerts and PagerDuty for incident response.</div>
+        </div>
+        <div class="card">
+            <div class="question">4. Can you explain how you handled model drift detection?</div>
+            <div class="answer">Using Evidently AI and statistical testing, I automated drift detection in retail forecasting, triggering retraining on Kubeflow based on metadata and weekly monitoring.</div>
+        </div>
+        <div class="card">
+            <div class="question">5. What MLOps practices have you implemented?</div>
+            <div class="answer">I implemented GitHub Actions, Docker-based CI/CD, Prometheus/Grafana monitoring, and MLflow experiment tracking in a production computer vision edge deployment.</div>
+        </div>
+    </div>
+
+    <h2>Advanced LLM and System Design Questions</h2>
+    <div class="card-container">
+        <div class="card">
+            <div class="question">How did you fine-tune LLaMA 2 with QLoRA on limited hardware?</div>
+            <div class="answer">I fine-tuned LLaMA 2 using QLoRA with 4-bit quantization and paged optimizers, enabling efficient training on a single A100. I used PEFT for parameter-efficient updates, offloaded gradients to CPU where needed, and prioritized instruction tuning over domain adaptation due to resource constraints.</div>
+        </div>
+        <div class="card">
+            <div class="question">Can you explain the difference between supervised fine-tuning, RLHF, and DPO?</div>
+            <div class="answer">Supervised fine-tuning uses labeled pairs for next-token prediction. RLHF involves training a reward model from preferences, then using PPO to align output. DPO (Direct Preference Optimization) bypasses reward modeling by directly optimizing the policy on preferred outputs via a contrastive loss.</div>
+        </div>
+        <div class="card">
+            <div class="question">How do you evaluate and improve LLM outputs at scale?</div>
+            <div class="answer">I use win-rate evals, embedding-based metrics, and GPT-based judges. For scaling quality, I add hybrid evaluations (auto + human), monitor perplexity drift, and apply iterative labeling or feedback pipelines.</div>
+        </div>
+        <div class="card">
+            <div class="question">Describe a Retrieval-Augmented Generation (RAG) system you’ve built.</div>
+            <div class="answer">I built a RAG pipeline using FAISS with BM25 fallback and LangChain orchestration. Optimized retrieval granularity and used prompt compression for multi-turn memory, deployed with FastAPI and Docker.</div>
+        </div>
+        <div class="card">
+            <div class="question">How would you design a feedback loop system for training LLMs with expert labels in math or physics?</div>
+            <div class="answer">I’d build a HITL system using active sampling from model uncertainty, followed by expert validation in a labeling UI. Feedback would train a preference model or fine-tune the base LLM with DPO or LoRA. All examples and corrections would be stored in a centralized training cache.</div>
+        </div>
+    </div>
+
+    <h2>Job Description-Based Technical Questions</h2>
+    <div class="card-container">
+        <div class="card">
+            <div class="question">6. What do you understand by RLHF, and how would you implement it?</div>
+            <div class="answer">I prototyped an RLHF pipeline using TRL for a healthcare chatbot, training a reward model with user preferences and fine-tuning GPT-J using PPO.</div>
+        </div>
+        <div class="card">
+            <div class="question">7. How would you evaluate the quality of human-labeled data at scale?</div>
+            <div class="answer">I applied inter-annotator agreement and weak supervision to improve segmentation label quality, supported by confusion matrix visualization.</div>
+        </div>
+        <div class="card">
+            <div class="question">8. How do you route tasks to the right expert?</div>
+            <div class="answer">Built a routing algorithm for customer service using historical performance and embedding similarity, reducing resolution time and boosting CSAT.</div>
+        </div>
+        <div class="card">
+            <div class="question">9. What’s your experience with active learning?</div>
+            <div class="answer">I used uncertainty sampling in a legal document classifier project, reducing labeling effort by 40% and improving F1 scores significantly.</div>
+        </div>
+        <div class="card">
+            <div class="question">10. Can you describe your experience with PyTorch or TensorFlow?</div>
+            <div class="answer">In PyTorch Lightning, I built a defect detection model with DALI pipelines; with TensorFlow, I used TFX to deploy models on GCP AI Platform.</div>
+        </div>
+    </div>
+
+    <h2>Behavioral and Fit Questions</h2>
+    <div class="card-container">
+        <div class="card">
+            <div class="question">11. Tell me about a time you worked in a chaotic or ambiguous environment.</div>
+            <div class="answer">At a robotics hackathon, I led rapid pivots after hardware issues, refocusing team efforts to build an autonomous navigation demo under tight time constraints.</div>
+        </div>
+        <div class="card">
+            <div class="question">12. How do you stay updated in this rapidly changing AI field?</div>
+            <div class="answer">I write a blog summarizing AI papers, contribute to LangChain, and participate in AI meetups and workshops to stay current and hands-on.</div>
+        </div>
+        <div class="card">
+            <div class="question">13. Why do you want to work here?</div>
+            <div class="answer">Your mission around scalable human-in-the-loop systems aligns with my past projects and long-term goals, offering both purpose and technical growth.</div>
+        </div>
+        <div class="card">
+            <div class="question">14. How do you balance speed and research rigor?</div>
+            <div class="answer">I balance agility with checklists and reproducible experimentation, moving fast on low-risk areas and methodically on model validation and deployment.</div>
+        </div>
+        <div class="card">
+            <div class="question">15. What are you most proud of in your resume?</div>
+            <div class="answer">Building a privacy-preserving LLM stack for edge compute—from data pipeline to fine-tuned model with optimized inference—validated in real-world conditions.</div>
+        </div>
+    </div>
+</body>
+</html>

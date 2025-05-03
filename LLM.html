@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LLM </title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 20px;
+            padding: 20px;
+        }
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            width: 250px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .card:hover {
+            transform: scale(1.03);
+        }
+        .question {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        .answer {
+            display: none;
+            margin-top: 10px;
+            color: #555;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            document.querySelectorAll(".card").forEach(card => {
+                card.addEventListener("click", () => {
+                    const answer = card.querySelector(".answer");
+                    answer.style.display = answer.style.display === "block" ? "none" : "block";
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>LLM Interview Deep Dive</h1>
+    <div class="card-container">
+        <div class="card">
+            <div class="question">What are the key design considerations when fine-tuning LLMs like LLaMA 2 with QLoRA?</div>
+            <div class="answer">Key considerations include quantization strategy (e.g., 4-bit), choice of LoRA rank, adapting batch size for memory constraints, and offloading layers smartly. Mixed precision training and memory-efficient schedulers are also crucial.</div>
+        </div>
+        <div class="card">
+            <div class="question">Explain the role of PEFT in training large models on limited GPUs.</div>
+            <div class="answer">PEFT (Parameter-Efficient Fine-Tuning) allows fine-tuning a subset of model parameters, such as attention adapters or layernorms. This drastically reduces memory footprint while retaining high performance on downstream tasks.</div>
+        </div>
+        <div class="card">
+            <div class="question">What challenges arise in RLHF workflows?</div>
+            <div class="answer">Challenges include collecting diverse and high-quality preference data, maintaining stability in PPO updates, designing effective reward models, and ensuring output diversity while optimizing for alignment.</div>
+        </div>
+        <div class="card">
+            <div class="question">How is Direct Preference Optimization (DPO) better suited than RLHF in some cases?</div>
+            <div class="answer">DPO bypasses reward modeling and directly uses preference data to train the policy using contrastive objectives. It's simpler, more stable, and often easier to scale in practice, especially for feedback-based training.</div>
+        </div>
+        <div class="card">
+            <div class="question">What are memory-efficient inference strategies for LLMs?</div>
+            <div class="answer">Key strategies include quantized weights (INT4, INT8), offloading layers, dynamic batching, KV cache reuse, and using inference accelerators like TensorRT, DeepSpeed Inference, or vLLM.</div>
+        </div>
+        <div class="card">
+            <div class="question">How would you evaluate LLMs beyond traditional NLP benchmarks?</div>
+            <div class="answer">By including human preference evals, task-specific success metrics, chain-of-thought consistency scores, hallucination rate tracking, and long-context retention tests on real-world documents or workflows.</div>
+        </div>
+        <div class="card">
+            <div class="question">How do you monitor and retrain a deployed LLM pipeline?</div>
+            <div class="answer">I track feedback loop outcomes, drift in embeddings, degradation in task accuracy, and fallback rate spikes. Data is re-sampled for fine-tuning using uncertainty or failure clusters and continuously evaluated via win-rate and regression tests.</div>
+        </div>
+    </div>
+
+
+    <h1>DPO Questions</h1>
+    <div class="card-container">
+        <div class="card">
+            <div class="question">What is the core optimization objective in DPO?</div>
+            <div class="answer">DPO optimizes a contrastive loss that increases the likelihood of preferred outputs over rejected ones, without explicitly modeling a reward function, by maximizing log p_θ(y⁺) - log p_θ(y⁻).</div>
+        </div>
+        <div class="card">
+            <div class="question">How do you prepare data for DPO training?</div>
+            <div class="answer">Data preparation involves collecting paired examples (preferred vs. dispreferred outputs), ensuring diversity in prompt types, filtering low-quality or ambiguous preferences, and balancing pairs to avoid bias.</div>
+        </div>
+        <div class="card">
+            <div class="question">Explain how DPO training differs from RLHF in terms of sample efficiency.</div>
+            <div class="answer">DPO directly uses preference pairs and avoids rollouts or reward modeling, reducing the number of samples and computational overhead since it treats preference data as supervised signals for the policy.</div>
+        </div>
+        <div class="card">
+            <div class="question">What are potential pitfalls when implementing DPO?</div>
+            <div class="answer">Pitfalls include overfitting to noisy preferences, covariate shift between training and deployment prompts, and difficulty in obtaining high-quality labeled pairs at scale.</div>
+        </div>
+        <div class="card">
+            <div class="question">How would you evaluate a model fine-tuned with DPO?</div>
+            <div class="answer">Evaluation involves held-out preference pair accuracy, win-rate against a baseline policy in A/B tests, human preference studies, and monitoring for regression on original language modeling benchmarks.</div>
+        </div>
+        <div class="card">
+            <div class="question">Can DPO be combined with other fine-tuning methods?</div>
+            <div class="answer">Yes. DPO can be applied after an initial supervised fine-tuning or LoRA step to align outputs further, or integrated into multi-stage pipelines where domain adaptation precedes preference alignment.</div>
+        </div>
+        <div class="card">
+            <div class="question">What metrics help detect issues in DPO-aligned models?</div>
+            <div class="answer">Key metrics include preference pair classification accuracy, diversity of generated outputs, KL divergence from base distribution, and drift in prompt-response alignment over time.</div>
+        </div>
+        <div class="card">
+            <div class="question">Describe a system design for deploying a DPO-trained model in production.</div>
+            <div class="answer">Design includes a continuous feedback loop collecting live preference data, an offline DPO training pipeline triggering periodic model updates, versioned API endpoints, and monitoring for preference drift and latency.</div>
+        </div>
+    </div>
+</body>
+</html>

@@ -137,7 +137,7 @@
       </section>
     <section id="experience">
         <p class="section__text__p1">My Professional Journey</p>
-        <h1 class="title">Experience</h1>
+        
         <div class="experience-details-container">
           <div class="about-containers">
       
@@ -269,95 +269,162 @@
           class="icon arrow"
           onclick="location.href='./#projects'"
         />
-      </section>
-      
-    <section id="projects">
-      <p class="section__text__p1">Browse My Recent</p>
-      <h1 class="title">Projects</h1>
-      <div class="experience-details-container">
-        <div class="about-containers">
-          <div class="details-container color-container">
-            <div class="article-container">
-              <img
-                src="./assets/project-1.png"
-                alt="Project 1"
-                class="project-img"
-              />
-            </div>
-            <h2 class="experience-sub-title project-title">Project One</h2>
-            <div class="btn-container">
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/'"
-              >
-                Github
-              </button>
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/'"
-              >
-                Live Demo
-              </button>
-            </div>
+        <section id="projects">
+          <p class="section__text__p1">Explore My Projects</p>
+          <h1 class="title">Projects</h1>
+        
+          <!-- Filter Buttons (optional) -->
+          <div class="filter-buttons">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="ai">AI</button>
+            <button class="filter-btn" data-filter="iot">IoT</button>
+            <button class="filter-btn" data-filter="nlp">NLP</button>
+            <button class="filter-btn" data-filter="vision">Computer Vision</button>
           </div>
-          <div class="details-container color-container">
-            <div class="article-container">
-              <img
-                src="./assets/project-2.png"
-                alt="Project 2"
-                class="project-img"
-              />
+        
+          <!-- All cards must be inside this one container -->
+          <div class="projects-grid">
+            <!-- Project 1 -->
+            <div class="project-card" data-category="ai vision">
+              <iframe
+                src="https://www.youtube.com/embed/QECp0kyFSck"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+              ></iframe>
+              <h3>Construction Site Safety with YOLO</h3>
+              <p>Real-time detection of PPE using YOLO. Improves safety and scalability at construction sites.</p>
+              <div class="btn-container">
+                <a href="https://github.com/" class="btn btn-color-2">GitHub</a>
+                <a href="https://youtu.be/QECp0kyFSck" class="btn btn-color-2">Demo</a>
+              </div>
             </div>
-            <h2 class="experience-sub-title project-title">Project Two</h2>
-            <div class="btn-container">
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/'"
-              >
-                Github
-              </button>
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/'"
-              >
-                Live Demo
-              </button>
+        
+            <!-- Project 2 -->
+            <div class="project-card" data-category="iot">
+              <iframe
+                src="https://www.youtube.com/embed/nYa99h0fpEw"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+              ></iframe>
+              <h3>Personnel Hazard Management System</h3>
+              <p>It employs state-of-the-art sensors and cloud-based analytics to swiftly detect and respond to potential hazards.</p>
+              <div class="btn-container">
+                <a href="https://github.com/" class="btn btn-color-2">GitHub</a>
+                <a href="https://youtu.be/nYa99h0fpEw" class="btn btn-color-2">Demo</a>
+              </div>
             </div>
-          </div>
-          <div class="details-container color-container">
-            <div class="article-container">
-              <img
-                src="./assets/project-3.png"
-                alt="Project 3"
-                class="project-img"
-              />
+        
+            <!-- Project 3 -->
+            <div class="project-card" data-category="nlp">
+              <img src="assets/women_clothing.gif" alt="POS Tagging" />
+              <h3>Women-Clothing-Review-Prediction-using-Machine-Learning-and-Flask</h3>
+              <p>Extracting features from text data, like word frequencies, n-grams.</p>
+              <div class="btn-container">
+                <a href="https://github.com/" class="btn btn-color-2">GitHub</a>
+              </div>
             </div>
-            <h2 class="experience-sub-title project-title">Project Three</h2>
-            <div class="btn-container">
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/'"
-              >
-                Github
-              </button>
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/'"
-              >
-                Live Demo
-              </button>
+        
+            <!-- Project 4 -->
+            <div class="project-card" data-category="ai iot">
+              <iframe
+                src="https://www.youtube.com/embed/2guWQDW2Mm4"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+              ></iframe>
+              <h3>Enhanced Fire Extinguisher Inspection</h3>
+              <p>Combines thermal and visual analysis with Boston Dynamics Spot robot for inspection automation. </p>
+              <div class="btn-container">
+                <a href="https://github.com/" class="btn btn-color-2">GitHub</a>
+                <a href="https://github.com/" class="btn btn-color-2">Live Demo</a>
+              </div>
             </div>
-          </div>
-        </div>
-      </div>
-      <img
-        src="./assets/arrow.png"
-        alt="Arrow icon"
-        class="icon arrow"
-        onclick="location.href='./#certifications'"
-      />
-    </section>
+        
+            <!-- Project 5 -->
+            <div class="project-card" data-category="vision">
+              <iframe
+                src="https://www.youtube.com/embed/sD8otJ50RXM"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+              ></iframe>
+              <h3>Revolutionizing Welding Analytics: COBOT</h3>
+              <p>By integrating smart analytics and automation, the system optimizes welding operations.</p>
+              <div class="btn-container">
+                <a href="https://github.com/" class="btn btn-color-2">GitHub</a>
+              </div>
+            </div>
+        
+            <!-- Project 6 -->
+            <div class="project-card" data-category="vision ai">
+              <iframe
+                src="https://www.youtube.com/embed/OETUZxiViLg"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+              ></iframe>
+              <h3>Advanced Defect Identification: Capacitor</h3>
+              <p>Gait detection and analysis using OpenPose and pose estimation to monitor walking patterns.21</p>
+              <div class="btn-container">
+                <a href="https://github.com/" class="btn btn-color-2">GitHub</a>
+              </div>
+            </div>
 
+            <!-- Project 7 -->
+            <div class="project-card" data-category="vision ai">
+              <iframe src="https://www.youtube.com/embed/-XUVulOQX9c" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen width="100%" height="450"></iframe>
+              <h3>Next-Gen Inspection Methodology: Leveraging Boston DynamicsSpot Robot and IBM Maximo Suite.</h3>
+              <p>The system optimizes efficiency, enhances reliability, and ensures peak performance of critical electronic components.</p>
+              <div class="btn-container">
+                <a href="https://github.com/" class="btn btn-color-2">GitHub</a>
+              </div>
+            </div>
+            
+        
+            <!-- Project 8 -->
+            <div class="project-card" data-category="vision ai">
+              <iframe src="https://www.youtube.com/embed/wuvBj5bKHNs" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen width="100%" height="450"></iframe>
+
+              <h3>Precision Maintenance: Thermal Inspection of Toyota Motors</h3>
+              <p>This advanced system utilizes depth-sensing capabilities to accurately identify and categorize various parts based on size, shape, and other critical attributes.</p>
+              <div class="btn-container">
+                <a href="https://github.com/" class="btn btn-color-2">GitHub</a>
+              </div>
+            </div>
+
+
+            <!-- Project 9 -->
+            <div class="project-card" data-category="nlp">
+              <img src="assets/speech_recognition_part2.gif" alt="POS Tagging" />
+              <h3>Improving Speech Emotion Recognition Using Hybrid Deep Learning Models and Data Augmentation </h3>
+              <p>It is significant to know the customers - patients emotions in real time for enhancing the services offered by the respective industry.</p>
+              <div class="btn-container">
+                <a href="https://github.com/" class="btn btn-color-2">GitHub</a>
+              </div>
+            </div>
+
+
+            <!-- Project 10 -->
+            <div class="project-card" data-category="nlp">
+              <img src="assets/speech_recognition.gif" alt="POS Tagging" />
+              <h3>SPEECH EMOTION RECOGNITION USING TRADITIONAL MACHINE LEARNING TECHNIQUES</h3>
+              <p>A system that analyzes audio features to detect and classify emotions in speech using traditional machine learning algorithms.</p>
+              <div class="btn-container">
+                <a href="https://github.com/" class="btn btn-color-2">GitHub</a>
+              </div>
+            </div>
+
+
+
+
+          </div> <!-- /.projects-grid -->
+        
+          <img
+            src="./assets/arrow.png"
+            alt="Arrow icon"
+            class="icon arrow"
+            onclick="location.href='./#certifications'"
+          />
+        </section>
+        
+      
       <!-- CERTIFICATIONS SECTION -->
 
   <section id="certifications">
